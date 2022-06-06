@@ -5,9 +5,12 @@ var cuotas = parseInt(prompt("ingrese cuotas(minimo 24): "));
 
 while(isNaN(precio)== true){
     precio = parseInt(prompt("Ingrese un valor numerico al precio del vehiculo"));
-    while(precio<5000000){
+    while(precio<5000000 && precio>0){
         precio = parseInt(prompt("el precio minimo del auto es de $5.000.000"));
     }
+}
+while(precio<5000000 && precio>0){
+    precio = parseInt(prompt("el precio minimo del auto es de $5.000.000"));
 }
 
 while(isNaN(pie)== true){
@@ -19,6 +22,12 @@ while(isNaN(pie)== true){
         pie = parseInt(prompt("el pie maximo es del 50% del valor del vehiculo"));
     }
 }
+while(pie<(precio*0.1)){
+    pie = parseInt(prompt("el pie minimo es del 10% del valor del vehiculo"));
+}
+while(pie>(precio*0.5)){
+    pie = parseInt(prompt("el pie maximo es del 50% del valor del vehiculo"));
+}
 
 while(isNaN(cuotas)== true){
     cuotas = parseInt(prompt("Ingrese un valor numerico a las cuotas"));
@@ -26,6 +35,10 @@ while(isNaN(cuotas)== true){
         cuotas = parseInt(prompt("ingrese cuotas(minimo 24): "));
     }
 }
+while(cuotas<24){
+    cuotas = parseInt(prompt("ingrese cuotas(minimo 24): "));
+}
+
 var monto = precio-pie;
 let interes = 0.025
 
@@ -37,4 +50,4 @@ console.log("el prestamos seria de: $" + prestamo);
 console.log("tienes que pagar: $" + cuotasMensuales);
 
 alert("el prestamos seria de: $" + prestamo);
-alert("tienes que pagar: $" + cuotasMensuales);
+alert("tienes que pagar: $" + cuotasMensuales + " mensualmente");
