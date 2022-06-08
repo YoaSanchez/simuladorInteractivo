@@ -60,12 +60,19 @@ while(cuotas<24){
 var monto = precio-pie;
 let interes = 0.025
 
-let prestamo = Math.round((monto*interes*cuotas)+monto);
-let cuotasMensuales = Math.round(prestamo/cuotas);
+function prestamo(a, b){
+    return Math.round((a*b*interes)+a)
+}
 
+function cuotasMensuales(x, y){
+    return Math.round(x/y)
+}
 
-console.log("el prestamos seria de: $" + prestamo);
-console.log("tienes que pagar: $" + cuotasMensuales);
+let deuda = Math.round(prestamo(monto, cuotas))
+let mensualidad = Math.round(cuotasMensuales(deuda, cuotas))
 
-alert("el prestamos seria de: $" + prestamo);
-alert("tienes que pagar: $" + cuotasMensuales + " mensualmente");
+console.log("el prestamos seria de: $" + deuda);
+console.log("tienes que pagar: $" + mensualidad + " mensualmente");
+
+alert("el prestamos seria de: $" + deuda);
+alert("tienes que pagar: $" + mensualidad + " mensualmente");
