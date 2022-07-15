@@ -1,0 +1,58 @@
+autos = [{
+        id: 1,
+        marca: 'volkswagen',
+        modelo: "golf",
+        precioCredito: 20000000,
+        precioLista: 24000000
+    },
+    {
+        id: 2,
+        marca: "volkswagen",
+        modelo: "virtus",
+        precioCredito: 15000000,
+        precioLista: 18000000
+    },
+    {
+        id: 3,
+        marca: "chevrolet",
+        modelo: "onix",
+        precioCredito: 12000000,
+        precioLista: 14000000
+    },
+    {
+        id: 4,
+        marca: "chevrolet",
+        modelo: "f150",
+        precioCredito: 35000000,
+        precioLista: 39000000
+    },
+    {
+        id: 5,
+        marca: "MG",
+        modelo: "GT",
+        precioCredito: 13300000,
+        precioLista: 15000000
+    },
+    {
+        id: 6,
+        marca: "MG",
+        modelo: "ZS",
+        precioCredito: 11500000,
+        precioLista: 13000000
+    },
+    {
+        id: 7,
+        marca: "MG",
+        modelo: "3",
+        precioCredito: 9700000,
+        precioLista: 11000000
+    },
+    {
+        id: 8,
+        marca: "fiat",
+        modelo: "mobi",
+        precioCredito: 9500000,
+        precioLista: 11800000
+    }
+
+]

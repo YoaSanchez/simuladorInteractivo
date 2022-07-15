@@ -5,57 +5,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
     <title>Cotizador de autos</title>
 </head>
 
 <body>
-    <header>
-        <h1>Cotizador de autos</h1>
-        <button class="storageClear" type="submit" form="form">Borrar Storage</button>
-    </header>
-
-    <form id="form">
-        <div class="nuestrosAutos">
-            <fieldset class="reset">
-                <legend class="reset fs-2">Seleccione el auto que le interesa</legend>
-
-                <label for="selectMarca">Marca</label>
-                <select name="selectMarca" id="selectMarca">
-                    <option value="" disabled selected>-- Seleccione --</option>
-                </select>
-
-                <label for="selectModelo">Modelo</label>
-                <select name="selectModelo" id="selectModelo">
-                    <option value="" disabled selected>-- Seleccione --</option>
-                </select>
-            </fieldset>
-        </div>
-
-        <fieldset class="reset">
-            <legend class="reset">Modo de pago</legend>
-
-            <div class="formaPago">
-                <label for="credito">Credito</label>
-                <input type="radio" name="pago" value="credito" id="credito">
-
-                <label for="contado">Pago al contado</label>
-                <input type="radio" name="pago" value="contado" id="contado">
+    <div class="container">
+        <header>
+            <div class="container d-flex justify-content-between align-items-center">
+                <h1 class="fw-300 text-center">Cotizador de autos</h1>
+                <button class="storageClear my-3" type="submit" form="form">Borrar Storage</button>
             </div>
-        </fieldset>
+        </header>
 
-        <div class="resultado"></div>
-        <div class="credito"></div>
-        <div class="storage"></div>
+        <form id="form">
+            <div class="nuestrosAutos">
+                <fieldset class="reset">
+                    <legend class="reset fs-2">Seleccione el auto que le interesa</legend>
 
-        <!-- `<div><h4>${j[0]}</h4><div><p>pie: ${j[1]}</p><p> cuotas: ${j[2]}</p></div><p>total: ${j[3]}</p><p>mensual:${j[4]}</p></div>` -->
+                    <label for="selectMarca">Marca</label>
+                    <select class="form-select" name="selectMarca" id="selectMarca">
+                        <option value="" disabled selected>-- Seleccione --</option>
+                    </select>
 
-        <!-- <h2>Tus simulaciones de credito</h2> -->
+                    <label for="selectModelo">Modelo</label>
+                    <select class="form-select" name="selectModelo" id="selectModelo">
+                        <option value="" disabled selected>-- Seleccione --</option>
+                    </select>
+                </fieldset>
+            </div>
+
+            <fieldset class="reset">
+                <legend class="reset">Modo de pago</legend>
+
+                <div class="formaPago">
+                    <label for="credito">Credito</label>
+                    <input type="radio" name="pago" value="credito" id="credito">
+
+                    <label for="contado">Pago al contado</label>
+                    <input type="radio" name="pago" value="contado" id="contado">
+                </div>
+            </fieldset>
+
+            <div class="resultado"></div>
+            <div class="credito"></div>
+            <div class="mt-5"><section class="container"><div class="row justify-content-around storage"></div></section></div>
+
+            <!-- `<div><h4>${j[0]}</h4><div><p>pie: ${j[1]}</p><p> cuotas: ${j[2]}</p></div><p>total: ${j[3]}</p><p>mensual:${j[4]}</p></div>` -->
+
+            <!-- <h2>Tus simulaciones de credito</h2> -->
 
 
-    </form>
-    <script src="datos.js"></script>
-    <script src="dom.js"></script>
-
+        </form>
+        <script src="./js/datos.js"></script>
+        <script src="./js/dom.js"></script>
+    </div>
 </body>
 
 </html>
