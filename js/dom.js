@@ -1,25 +1,31 @@
-const marcas = autos.map((item) => item.marca);
+let autos = []
 
-const marcasUnicas = new Set(marcas);
+result = fetch(`js/datos.json`)
+.then(Response => Response.json())
+.then(datos => {
+    autos = datos;
+    const marcas = autos.map((item) => item.marca);
+    const marcasUnicas = new Set(marcas);
+    marcasUnicas.forEach(function (element) {
+        let listaMarcas = document.querySelector("#selectMarca");
+        let nuevoAuto = document.createElement("option");
+        nuevoAuto.value = element;
+        nuevoAuto.innerHTML = element;
+        listaMarcas.append(nuevoAuto);
+    });
+})
 
-marcasUnicas.forEach(function (element) {
-    let listaMarcas = document.querySelector("#selectMarca");
-    let nuevoAuto = document.createElement("option");
-    nuevoAuto.value = element;
-    nuevoAuto.innerHTML = element;
-    listaMarcas.append(nuevoAuto);
-});
 
 let marcaElegida = document.getElementById('selectMarca');
 
 marcaElegida.addEventListener("change", cambioMarca)
 
 function cambioMarca() {
-
+    
     let filtroMarca = autos.filter(marca => marca.marca === marcaElegida.value)
     let listaModelo = document.querySelector(`#selectModelo`);
     listaModelo.innerHTML = `<option value="" disabled selected>-- Seleccione --</option>`
-
+    
     for (const filtrado of filtroMarca) {
         let nuevoAuto = document.createElement("option");
         nuevoAuto.innerHTML = filtrado.modelo;
@@ -87,7 +93,7 @@ let btnClick = event => {
         if (result.isConfirmed) {
             let creditoSimulado = [`${marcaElegida.value} ${modeloElegido.value}`, Math.round(pie.value), Math.round(cuotas.value), Math.round(prestamo), Math.round(cuotaMensual)];
             localStorage.setItem(modeloElegido.value + cuotas.value + Math.round(cuotaMensual), JSON.stringify(creditoSimulado));
-            form.submit();
+            document.location.reload(true);
         }
     })
 }
