@@ -66,22 +66,33 @@ radioBtns.forEach(radioBtn => {
 
 let form = document.querySelector("#form")
 
-let btnClick = () => {
+let btnClick = event => {
+
     let filtroAuto = autos.find(auto => auto.marca === marcaElegida.value && auto.modelo === modeloElegido.value)
     let monto = filtroAuto.precioCredito - pie.value
     let prestamo = (monto * cuotas.value * 0.018) + monto;
     let cuotaMensual = Math.round(prestamo / cuotas.value);
-    // let div = document.querySelector(".credito");
-    // div.innerHTML = `<h3>Tu credito</h3><h4>el auto que elegiste es: ${marcaElegida.value} ${modeloElegido.value}</h4><p>El valor del credito es de $${Math.round(prestamo)}</p><p>Las cuotas mensuales son de $${Math.round(cuotaMensual)}</p>`;
-    alert(`Aqui va el sweet alert!!!!!     ${marcaElegida.value} ${modeloElegido.value} $${Math.round(prestamo)}  $${Math.round(cuotaMensual)}`)
 
-    let creditoSimulado = [`${marcaElegida.value} ${modeloElegido.value}`, Math.round(pie.value), Math.round(cuotas.value), Math.round(prestamo), Math.round(cuotaMensual)];
+    event.preventDefault();
 
-    localStorage.setItem(modeloElegido.value + cuotas.value + Math.round(cuotaMensual), JSON.stringify(creditoSimulado));
+    Swal.fire({
+        title: 'ya casi terminamos',
+        html: `<h4>Quieres guardar esta cotizacion?</h4> <p>${marcaElegida.value} ${modeloElegido.value}</p> <p>El prestamo seria de $${Math.round(prestamo)}</p> <p>Las cuotas de $${Math.round(cuotaMensual)} </p>`,
+        text: `Quieres guardar esta cotizacion? ${marcaElegida.value} ${modeloElegido.value}`,
+        icon: 'info',
+        showCancelButton: true,
+        cancelButtonText: `modificar cotizacion`,
+        confirmButtonText:`Guardar cotizacion`
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let creditoSimulado = [`${marcaElegida.value} ${modeloElegido.value}`, Math.round(pie.value), Math.round(cuotas.value), Math.round(prestamo), Math.round(cuotaMensual)];
+            localStorage.setItem(modeloElegido.value + cuotas.value + Math.round(cuotaMensual), JSON.stringify(creditoSimulado));
+            form.submit();
+        }
+    })
 }
 
 form.addEventListener("submit", btnClick);
-
 
 for (var i = 0; i < localStorage.length; ++i) {
     let cantidad
