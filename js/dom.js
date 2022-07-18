@@ -116,6 +116,7 @@ let clear = document.querySelector(".storageClear");
 
 let reset = () => {
     localStorage.clear();
+    document.location.reload(true);
 };
 
 clear.addEventListener("click", reset);
