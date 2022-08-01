@@ -1,31 +1,30 @@
-let autos = []
+let autos
 
 result = fetch(`js/datos.json`)
-.then(Response => Response.json())
-.then(datos => {
-    autos = datos;
-    const marcas = autos.map((item) => item.marca);
-    const marcasUnicas = new Set(marcas);
-    marcasUnicas.forEach(function (element) {
-        let listaMarcas = document.querySelector("#selectMarca");
-        let nuevoAuto = document.createElement("option");
-        nuevoAuto.value = element;
-        nuevoAuto.innerHTML = element;
-        listaMarcas.append(nuevoAuto);
-    });
-})
-
+    .then(Response => Response.json())
+    .then(datos => {
+        autos = datos;
+        const marcas = autos.map((item) => item.marca);
+        const marcasUnicas = new Set(marcas);
+        marcasUnicas.forEach(function (element) {
+            let listaMarcas = document.querySelector("#selectMarca");
+            let nuevoAuto = document.createElement("option");
+            nuevoAuto.value = element;
+            nuevoAuto.innerHTML = element;
+            listaMarcas.append(nuevoAuto);
+        });
+    })
 
 let marcaElegida = document.getElementById('selectMarca');
 
 marcaElegida.addEventListener("change", cambioMarca)
 
 function cambioMarca() {
-    
+
     let filtroMarca = autos.filter(marca => marca.marca === marcaElegida.value)
     let listaModelo = document.querySelector(`#selectModelo`);
     listaModelo.innerHTML = `<option value="" disabled selected>-- Seleccione --</option>`
-    
+
     for (const filtrado of filtroMarca) {
         let nuevoAuto = document.createElement("option");
         nuevoAuto.innerHTML = filtrado.modelo;
@@ -88,7 +87,7 @@ let btnClick = event => {
         icon: 'info',
         showCancelButton: true,
         cancelButtonText: `modificar cotizacion`,
-        confirmButtonText:`Guardar cotizacion`
+        confirmButtonText: `Guardar cotizacion`
     }).then((result) => {
         if (result.isConfirmed) {
             let creditoSimulado = [`${marcaElegida.value} ${modeloElegido.value}`, Math.round(pie.value), Math.round(cuotas.value), Math.round(prestamo), Math.round(cuotaMensual)];
@@ -107,7 +106,7 @@ for (var i = 0; i < localStorage.length; ++i) {
     creditasos = JSON.parse(cantidad);
     let storage = document.querySelector(".storage");
     let contcredito = document.createElement("div");
-    contcredito.className = "col-md-3 m-3";
+    contcredito.className = "col-md-3 m-3 py-3 bg-warning bg-opacity-50 rounded-3";
     contcredito.innerHTML = `<h4>${creditasos[0]}</h4><div><p>pie: $${creditasos[1]}</p><p> cuotas: ${creditasos[2]}</p></div><p>total: $${creditasos[3]}</p><p>mensual: $${creditasos[4]}</p>`;
     storage.append(contcredito);
 }

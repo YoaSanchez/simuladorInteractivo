@@ -17,49 +17,55 @@
             </div>
         </header>
 
-        <form id="form">
-            <div class="nuestrosAutos">
-                <fieldset class="reset">
-                    <legend class="reset fs-2">Seleccione el auto que le interesa</legend>
+        <div class="container bg-secondary bg-opacity-50 px-5 py-3 rounded-3">
+            <form id="form">
+                <div class="nuestrosAutos">
+                    <fieldset class="reset">
+                        <legend class="reset fs-2">Seleccione el auto que le interesa</legend>
 
-                    <div class="container d-flex text-center align">
-                        <label for="selectMarca">Marca</label>
-                        <select class="form-select m-2" name="selectMarca" id="selectMarca">
-                            <option value="" disabled selected>-- Seleccione --</option>
-                        </select>
+                        <div class="container d-flex text-center align">
+                            <label for="selectMarca">Marca</label>
+                            <select class="form-select m-2" name="selectMarca" id="selectMarca">
+                                <option value="" disabled selected>-- Seleccione --</option>
+                            </select>
 
-                        <label for="selectModelo">Modelo</label>
-                        <select class="form-select" name="selectModelo" id="selectModelo">
-                            <option value="" disabled selected>-- Seleccione --</option>
-                        </select>
+                            <label for="selectModelo">Modelo</label>
+                            <select class="form-select" name="selectModelo" id="selectModelo">
+                                <option value="" disabled selected>-- Seleccione --</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <fieldset>
+                    <legend class="text-center mt-3">Modo de pago</legend>
+
+                    <div class="formaPago d-flex align-item-center justify-content-center">
+                        <div class="mx-5 bg-success bg-opacity-50 p-3">
+                            <label for="credito">Credito</label>
+                            <input type="radio" name="pago" value="credito" id="credito" class="form-check-input ms-1">
+                        </div>
+                            
+                        <div class="mx-5 bg-success bg-opacity-50 p-3 hover">
+                            <label for="contado" class="">Pago al contado</label>
+                            <input type="radio" name="pago" value="contado" id="contado" class="form-check-input ms-1">
+                        </div>
                     </div>
                 </fieldset>
-            </div>
 
-            <fieldset>
-                <legend class="text-center mt-3">Modo de pago</legend>
+                <div class="resultado"></div>
+                <div class="credito"></div>
+        </div>
 
-                <div class="formaPago text-center">
-                    <label for="credito">Credito</label>
-                    <input type="radio" name="pago" value="credito" id="credito">
-
-                    <label for="contado">Pago al contado</label>
-                    <input type="radio" name="pago" value="contado" id="contado">
-                </div>
-            </fieldset>
-
-            <div class="resultado"></div>
-            <div class="credito"></div>
-            <div class="mt-5">
-                <section class="container">
-                    <div class="row justify-content-around storage"></div>
-                </section>
-            </div>
-            <button class="storageClear my-3" type="button">Borrar Cotizaciones</button>
+        <div class="mt-5">
+            <section class="container">
+                <div class="row justify-content-around storage"></div>
+            </section>
+        </div>
+        <button class="storageClear my-3" type="button">Borrar Cotizaciones</button>
         </form>
     </div>
 
-    <!-- <script src="./js/datos.js"></script> -->
     <script src="./js/dom.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
